@@ -1,0 +1,343 @@
+{% if httpd_modules_conf_mod_authn_file == '1' %}
+LoadModule authn_file_module modules/mod_authn_file.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_authn_dbm  == '1' %}
+LoadModule authn_dbm_module modules/mod_authn_dbm.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_authn_anon  == '1' %}
+LoadModule authn_anon_module modules/mod_authn_anon.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_authn_dbd  == '1' %}
+LoadModule authn_dbd_module modules/mod_authn_dbd.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_authn_socache  == '1' %}
+LoadModule authn_socache_module modules/mod_authn_socache.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_authn_core  == '1' %}
+LoadModule authn_core_module modules/mod_authn_core.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_authz_host  == '1' %}
+LoadModule authz_host_module modules/mod_authz_host.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_authz_groupfile  == '1' %}
+LoadModule authz_groupfile_module modules/mod_authz_groupfile.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_authz_user  == '1' %}
+LoadModule authz_user_module modules/mod_authz_user.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_authz_dbm  == '1' %}
+LoadModule authz_dbm_module modules/mod_authz_dbm.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_authz_owner  == '1' %}
+LoadModule authz_owner_module modules/mod_authz_owner.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_authz_dbd  == '1' %}
+LoadModule authz_dbd_module modules/mod_authz_dbd.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_authz_core  == '1' %}
+LoadModule authz_core_module modules/mod_authz_core.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_access_compat  == '1' %}
+LoadModule access_compat_module modules/mod_access_compat.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_auth_basic  == '1' %}
+LoadModule auth_basic_module modules/mod_auth_basic.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_auth_form  == '1' %}
+LoadModule auth_form_module modules/mod_auth_form.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_auth_digest  == '1' %}
+LoadModule auth_digest_module modules/mod_auth_digest.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_allowmethods  == '1' %}
+LoadModule allowmethods_module modules/mod_allowmethods.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_file_cache  == '1' %}
+LoadModule file_cache_module modules/mod_file_cache.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_cache  == '1' %}
+LoadModule cache_module modules/mod_cache.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_cache_disk  == '1' %}
+LoadModule cache_disk_module modules/mod_cache_disk.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_cache_socache  == '1' %}
+LoadModule cache_socache_module modules/mod_cache_socache.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_socache_shmcb  == '1' %}
+LoadModule socache_shmcb_module modules/mod_socache_shmcb.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_socache_dbm  == '1' %}
+LoadModule socache_dbm_module modules/mod_socache_dbm.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_socache_memcache  == '1' %}
+LoadModule socache_memcache_module modules/mod_socache_memcache.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_watchdog  == '1' %}
+LoadModule watchdog_module modules/mod_watchdog.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_macro  == '1' %}
+LoadModule macro_module modules/mod_macro.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_dbd  == '1' %}
+LoadModule dbd_module modules/mod_dbd.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_dumpio  == '1' %}
+LoadModule dumpio_module modules/mod_dumpio.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_buffer  == '1' %}
+LoadModule buffer_module modules/mod_buffer.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_ratelimit  == '1' %}
+LoadModule ratelimit_module modules/mod_ratelimit.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_reqtimeout  == '1' %}
+LoadModule reqtimeout_module modules/mod_reqtimeout.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_ext_filter  == '1' %}
+LoadModule ext_filter_module modules/mod_ext_filter.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_request  == '1' %}
+LoadModule request_module modules/mod_request.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_include  == '1' %}
+LoadModule include_module modules/mod_include.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_filter  == '1' %}
+LoadModule filter_module modules/mod_filter.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_substitute  == '1' %}
+LoadModule substitute_module modules/mod_substitute.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_sed  == '1' %}
+LoadModule sed_module modules/mod_sed.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_deflate  == '1' %}
+LoadModule deflate_module modules/mod_deflate.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_mime  == '1' %}
+LoadModule mime_module modules/mod_mime.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_log_config  == '1' %}
+LoadModule log_config_module modules/mod_log_config.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_log_debug  == '1' %}
+LoadModule log_debug_module modules/mod_log_debug.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_logio  == '1' %}
+LoadModule logio_module modules/mod_logio.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_env  == '1' %}
+LoadModule env_module modules/mod_env.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_expires  == '1' %}
+LoadModule expires_module modules/mod_expires.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_headers  == '1' %}
+LoadModule headers_module modules/mod_headers.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_unique_id  == '1' %}
+LoadModule unique_id_module modules/mod_unique_id.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_setenvif  == '1' %}
+LoadModule setenvif_module modules/mod_setenvif.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_version  == '1' %}
+LoadModule version_module modules/mod_version.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_remoteip  == '1' %}
+LoadModule remoteip_module modules/mod_remoteip.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_proxy  == '1' %}
+LoadModule proxy_module modules/mod_proxy.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_proxy_connect  == '1' %}
+LoadModule proxy_connect_module modules/mod_proxy_connect.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_proxy_ftp  == '1' %}
+LoadModule proxy_ftp_module modules/mod_proxy_ftp.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_proxy_http  == '1' %}
+LoadModule proxy_http_module modules/mod_proxy_http.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_proxy_fcgi  == '1' %}
+LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_proxy_scgi  == '1' %}
+LoadModule proxy_scgi_module modules/mod_proxy_scgi.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_proxy_fdpass  == '1' %}
+LoadModule proxy_fdpass_module modules/mod_proxy_fdpass.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_proxy_wstunnel  == '1' %}
+LoadModule proxy_wstunnel_module modules/mod_proxy_wstunnel.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_proxy_ajp  == '1' %}
+LoadModule proxy_ajp_module modules/mod_proxy_ajp.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_proxy_balancer  == '1' %}
+LoadModule proxy_balancer_module modules/mod_proxy_balancer.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_proxy_express  == '1' %}
+LoadModule proxy_express_module modules/mod_proxy_express.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_proxy_hcheck  == '1' %}
+LoadModule proxy_hcheck_module modules/mod_proxy_hcheck.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_session  == '1' %}
+LoadModule session_module modules/mod_session.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_session_cookie  == '1' %}
+LoadModule session_cookie_module modules/mod_session_cookie.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_session_dbd  == '1' %}
+LoadModule session_dbd_module modules/mod_session_dbd.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_slotmem_shm  == '1' %}
+LoadModule slotmem_shm_module modules/mod_slotmem_shm.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_ssl  == '1' %}
+LoadModule ssl_module modules/mod_ssl.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_lbmethod_byrequests  == '1' %}
+LoadModule lbmethod_byrequests_module modules/mod_lbmethod_byrequests.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_lbmethod_bytraffic  == '1' %}
+LoadModule lbmethod_bytraffic_module modules/mod_lbmethod_bytraffic.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_lbmethod_bybusyness  == '1' %}
+LoadModule lbmethod_bybusyness_module modules/mod_lbmethod_bybusyness.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_lbmethod_heartbeat  == '1' %}
+LoadModule lbmethod_heartbeat_module modules/mod_lbmethod_heartbeat.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_unixd  == '1' %}
+LoadModule unixd_module modules/mod_unixd.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_dav  == '1' %}
+LoadModule dav_module modules/mod_dav.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_status  == '1' %}
+LoadModule status_module modules/mod_status.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_autoindex  == '1' %}
+LoadModule autoindex_module modules/mod_autoindex.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_info  == '1' %}
+LoadModule info_module modules/mod_info.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_cgid  == '1' %}
+LoadModule cgid_module modules/mod_cgid.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_dav_fs  == '1' %}
+LoadModule dav_fs_module modules/mod_dav_fs.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_vhost_alias  == '1' %}
+LoadModule vhost_alias_module modules/mod_vhost_alias.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_negotiation  == '1' %}
+LoadModule negotiation_module modules/mod_negotiation.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_dir  == '1' %}
+LoadModule dir_module modules/mod_dir.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_actions  == '1' %}
+LoadModule actions_module modules/mod_actions.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_speling  == '1' %}
+LoadModule speling_module modules/mod_speling.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_userdir  == '1' %}
+LoadModule userdir_module modules/mod_userdir.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_alias  == '1' %}
+LoadModule alias_module modules/mod_alias.so
+{% endif %}
+
+{% if httpd_modules_conf_mod_rewrite  == '1' %}
+LoadModule rewrite_module modules/mod_rewrite.so
+{% endif %}

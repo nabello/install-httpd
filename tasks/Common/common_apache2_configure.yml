@@ -1,0 +1,49 @@
+---
+- name: Common - Does apache user exist ?
+  shell: "if id {{ apache_user }} >/dev/null 2>&1; then echo \"True\"; else echo \"False\"; fi"
+  register: check_if_apache_user_exist
+
+- debug:
+    msg: "check_if_apache_user_exist.stdout = {{ check_if_apache_user_exist.stdout }}"
+
+- name: Common - Create apache user
+  command: useradd -r {{ apache_user }}
+  when: check_if_apache_user_exist.stdout == "False"
+
+- name: Common - Add apache user to apache group
+  command: usermod -a -G {{ apache_group }} {{ apache_user }}
+  when: check_if_apache_user_exist.stdout == "False"
+
+- file:
+    path: /etc/apache2/conf/vhosts
+    state: directory
+
+- file:
+    path: /var/log/apache
+    state: directory
+
+- file:
+    path: /etc/apache2
+    state: directory
+    owner: "{{ apache_user }}"
+    group: "{{ apache_group }}"
+    recurse: yes
+
+- name: Common - Build the main apache2 configuration file | Template
+  template:
+    src=httpd.conf.j2
+    dest="/etc/apache2/conf/httpd.conf"
+
+- name: Common - Build the apache2 virtualhosts | Template
+  template:
+    src=virtualhosts.conf.j2
+    dest="/etc/apache2/conf/vhosts/virtualhosts.conf"
+
+- name: Common - Build the extra configurations | Template
+  template:
+    src="{{ item }}.j2"
+    dest="/etc/apache2/conf/extra/{{ item }}"
+  with_items:
+    - "httpd-default.conf"
+    - "httpd-mpm.conf"
+    - "httpd-modules.conf"

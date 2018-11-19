@@ -1,0 +1,48 @@
+---
+# Make sources directory
+- file:
+    path: "{{ compiling_path }}"
+    state: directory
+
+# Upload httpd, apr, apr-util archives
+- name: Common => tar - Upload httpd, apr, apr-util archives
+  synchronize:
+    src: "{{item}}"
+    dest: "{{ compiling_path }}"
+  with_items:
+    - "httpd-{{ httpd_version }}.tar.bz2"
+    - "apr-{{ apr_version }}.tar.bz2"
+    - "apr-util-{{ apr_util_version }}.tar.bz2"
+
+# Unarchive httpd, apr, apr-util
+- name: Common => tar - Unarchive httpd, apr, apr-util
+  unarchive:
+    src: "{{ compiling_path }}/{{item}}"
+    dest: "{{ compiling_path }}"
+    remote_src: True
+  with_items:
+    - "httpd-{{ httpd_version }}.tar.bz2"
+    - "apr-{{ apr_version }}.tar.bz2"
+    - "apr-util-{{ apr_util_version }}.tar.bz2"
+
+# Copy apr directory to httpd
+- name: Common => tar - Copy apr into httpd directory
+  command: "cp -r {{ compiling_path }}/apr-{{ apr_version }} {{ compiling_path }}/httpd-{{ httpd_version }}/srclib/apr"
+
+# Copy apr-util directory to httpd
+- name: Common => tar - Copy apr-util into httpd directory
+  command: "cp -r {{ compiling_path }}/apr-util-{{ apr_util_version }} {{ compiling_path }}/httpd-{{ httpd_version }}/srclib/apr-util"
+
+# Configure & Make apache2
+- name: Common => tar - Configure & Make apache2
+  command: "{{ item }}"
+  args:
+    chdir: "{{ compiling_path }}/httpd-{{ httpd_version }}"
+  with_items:
+    - "./configure --prefix={{ apache2_dir }} --enable-ssl --enable-so --with-included-apr --with-mpm=event --with-expat=/usr/include:/usr/lib64:expat"
+    - make
+    - make install
+
+# Copy apachectl to /usr/sbin
+- name: Common => tar - Copy apachectl to /usr/sbin
+  command: "cp -r {{ apache2_dir }}/bin/apachectl /usr/sbin"

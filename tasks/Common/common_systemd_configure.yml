@@ -1,0 +1,20 @@
+---
+- name: Common - Setup systemd httpd.service | Template
+  template:
+    src=httpd.service.j2
+    dest="/etc/systemd/system/httpd.service"
+
+- name: Common - Enable service httpd and ensure it is not masked
+  systemd:
+    name: httpd
+    enabled: yes
+    masked: no
+
+- name: Common - Reload all daemons
+#  command: "systemctl daemon-reload"systemd:
+  systemd:
+    state: restarted
+    daemon_reload: yes
+
+- name: Common - Start httpd
+  systemd: state=started name=httpd

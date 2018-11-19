@@ -1,0 +1,16 @@
+{% for virtualhost in virtualhosts %}
+<VirtualHost {{ virtualhost['host'] }}:{{ virtualhost['port'] }}>
+
+    ServerName {{ virtualhost['server_name'] }}
+    DocumentRoot {{ virtualhost['document_root'] }}
+
+    <Directory {{ virtualhost['directory'] }}>
+        AllowOverride {{ virtualhost['allow_override'] }}
+        Require {{ virtualhost['require'] }}
+    </Directory>
+
+    ErrorLog "{{ virtualhost['error_log'] }}"
+    CustomLog "{{ virtualhost['access_log'] }}" common
+
+</VirtualHost>
+{% endfor %}

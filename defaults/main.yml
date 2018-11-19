@@ -1,0 +1,204 @@
+---
+# General
+container_mode: False
+install_type: 'git'
+httpd_version: '2.4.27'
+apr_version: '1.6.2'
+apr_util_version: '1.6.0'
+httpd_repository: {name: 'httpd',url: 'https://github.com/apache/httpd.git',tag: "{{ httpd_version }}"}
+httpd_apr: {name: 'apr',url: 'https://github.com/apache/apr.git',tag: "{{ apr_version }}"}
+httpd_apr_util: {name: 'apr-util',url: 'https://github.com/apache/apr-util.git',tag: "{{ apr_util_version }}"}
+apache_user: 'apache'
+apache_group: 'apache'
+compiling_path: '/home/sources'
+apache2_dir: '/etc/apache2'
+
+
+# httpd.conf
+http_conf_serverroot: '/etc/apache2'
+http_conf_port: '80'
+http_conf_user: 'apache'
+http_conf_group: 'apache'
+http_conf_servername: 'www.example.com:80'
+http_conf_serveradmin: 'you@example.com'
+http_conf_documentroot: '/etc/apache2/htdocs'
+http_conf_options: 'Indexes FollowSymLinks'
+http_conf_allowoverride: 'None'
+http_conf_require: 'all granted'
+http_conf_errorlog: 'logs/error_log'
+http_conf_loglevel: 'warn'
+http_conf_httpd_mpm_conf: '1'
+http_conf_httpd_multilang_errordoc_conf: '0'
+http_conf_httpd_autoindex_conf: '0'
+http_conf_httpd_languages_conf: '0'
+http_conf_httpd_userdir_conf: '0'
+http_conf_httpd_info_conf: '0'
+http_conf_httpd_vhosts_conf: '0'
+http_conf_httpd_manual_conf: '0'
+http_conf_httpd_dav_conf: '0'
+http_conf_httpd_default_conf: '1'
+
+
+# httpd_modules.conf
+httpd_modules_conf_mod_authn_file: '1'
+httpd_modules_conf_mod_authn_dbm: '0'
+httpd_modules_conf_mod_authn_anon: '0'
+httpd_modules_conf_mod_authn_dbd: '0'
+httpd_modules_conf_mod_authn_socache: '0'
+httpd_modules_conf_mod_authn_core: '1'
+httpd_modules_conf_mod_authz_host: '1'
+httpd_modules_conf_mod_authz_groupfile: '1'
+httpd_modules_conf_mod_authz_user: '1'
+httpd_modules_conf_mod_authz_dbm: '0'
+httpd_modules_conf_mod_authz_owner: '0'
+httpd_modules_conf_mod_authz_dbd: '0'
+httpd_modules_conf_mod_authz_core: '1'
+httpd_modules_conf_mod_access_compat: '1'
+httpd_modules_conf_mod_auth_basic: '1'
+httpd_modules_conf_mod_auth_form: '0'
+httpd_modules_conf_mod_auth_digest: '0'
+httpd_modules_conf_mod_allowmethods: '0'
+httpd_modules_conf_mod_file_cache: '0'
+httpd_modules_conf_mod_cache: '0'
+httpd_modules_conf_mod_cache_disk: '0'
+httpd_modules_conf_mod_cache_socache: '0'
+httpd_modules_conf_mod_socache_shmcb: '0'
+httpd_modules_conf_mod_socache_dbm: '0'
+httpd_modules_conf_mod_socache_memcache: '0'
+httpd_modules_conf_mod_watchdog: '0'
+httpd_modules_conf_mod_macro: '0'
+httpd_modules_conf_mod_dbd: '0'
+httpd_modules_conf_mod_dumpio: '0'
+httpd_modules_conf_mod_buffer: '0'
+httpd_modules_conf_mod_ratelimit: '0'
+httpd_modules_conf_mod_reqtimeout: '1'
+httpd_modules_conf_mod_ext_filter: '0'
+httpd_modules_conf_mod_request: '0'
+httpd_modules_conf_mod_include: '0'
+httpd_modules_conf_mod_filter: '1'
+httpd_modules_conf_mod_substitute: '0'
+httpd_modules_conf_mod_sed: '0'
+httpd_modules_conf_mod_deflate: '1'
+httpd_modules_conf_mod_mime: '1'
+httpd_modules_conf_mod_log_config: '1'
+httpd_modules_conf_mod_log_debug: '0'
+httpd_modules_conf_mod_logio: '0'
+httpd_modules_conf_mod_env: '1'
+httpd_modules_conf_mod_expires: '1'
+httpd_modules_conf_mod_headers: '1'
+httpd_modules_conf_mod_unique_id: '0'
+httpd_modules_conf_mod_setenvif: '1'
+httpd_modules_conf_mod_version: '1'
+httpd_modules_conf_mod_remoteip: '0'
+httpd_modules_conf_mod_proxy: '1'
+httpd_modules_conf_mod_proxy_connect: '0'
+httpd_modules_conf_mod_proxy_ftp: '0'
+httpd_modules_conf_mod_proxy_http: '0'
+httpd_modules_conf_mod_proxy_fcgi: '1'
+httpd_modules_conf_mod_proxy_scgi: '0'
+httpd_modules_conf_mod_proxy_fdpass: '0'
+httpd_modules_conf_mod_proxy_wstunnel: '0'
+httpd_modules_conf_mod_proxy_ajp: '0'
+httpd_modules_conf_mod_proxy_balancer: '0'
+httpd_modules_conf_mod_proxy_express: '0'
+httpd_modules_conf_mod_proxy_hcheck: '0'
+httpd_modules_conf_mod_session: '0'
+httpd_modules_conf_mod_session_cookie: '0'
+httpd_modules_conf_mod_session_dbd: '0'
+httpd_modules_conf_mod_slotmem_shm: '0'
+httpd_modules_conf_mod_ssl: '1'
+httpd_modules_conf_mod_lbmethod_byrequests: '0'
+httpd_modules_conf_mod_lbmethod_bytraffic: '0'
+httpd_modules_conf_mod_lbmethod_bybusyness: '0'
+httpd_modules_conf_mod_lbmethod_heartbeat: '0'
+httpd_modules_conf_mod_unixd: '1'
+httpd_modules_conf_mod_dav: '0'
+httpd_modules_conf_mod_status: '1'
+httpd_modules_conf_mod_autoindex: '1'
+httpd_modules_conf_mod_info: '0'
+httpd_modules_conf_mod_cgid: '0'
+httpd_modules_conf_mod_dav_fs: '0'
+httpd_modules_conf_mod_vhost_alias: '0'
+httpd_modules_conf_mod_negotiation: '0'
+httpd_modules_conf_mod_dir: '1'
+httpd_modules_conf_mod_actions: '0'
+httpd_modules_conf_mod_speling: '0'
+httpd_modules_conf_mod_userdir: '0'
+httpd_modules_conf_mod_alias: '1'
+httpd_modules_conf_mod_rewrite: '1'
+
+
+# httpd-default.conf
+httpd_default_conf_timeout: '60'
+httpd_default_conf_keepalive: 'On'
+httpd_default_conf_maxkeepaliverequests: '100'
+httpd_default_conf_keepalivetimeout: '5'
+httpd_default_conf_usecanonicalname: 'Off'
+httpd_default_conf_accessfilename: '.htaccess'
+httpd_default_conf_servertokens: 'Full'
+httpd_default_conf_serversignature: 'Off'
+httpd_default_conf_hostnamelookups: 'Off'
+#reqtimeout_module
+httpd_default_conf_reqtimeout_module_header: '20-40'
+httpd_default_conf_reqtimeout_module_header_minrate: '500'
+httpd_default_conf_reqtimeout_module_body: '20'
+httpd_default_conf_reqtimeout_module_body_minrate: '500'
+
+
+# http-mpm.conf
+# For more information take a look at
+# https://wiki.mikejung.biz/Apache#Event_MPM
+# Every mpm module besides mpm_netware_module (!mpm_netware_module)
+mpm_pidfile: '/var/run/httpd.pid'
+mpm_maxmemfree: '2048'
+# mpm_prefork_module
+mpm_prefork_module_startservers: '5'
+mpm_prefork_module_minspareservers: '5'
+mpm_prefork_module_maxspareservers: '10'
+mpm_prefork_module_maxrequestworkers: '250'
+mpm_prefork_module_maxconnectionsperchild: '0'
+# mpm_worker_module
+mpm_worker_module_startservers: '3'
+mpm_worker_module_minsparethreads: '75'
+mpm_worker_module_maxsparethreads: '250'
+mpm_worker_module_threadsperchild: '25'
+mpm_worker_module_maxrequestworkers: '400'
+mpm_worker_module_maxconnectionsperchild: '0'
+# mpm_event_module
+mpm_event_module_startservers: '3'
+mpm_event_module_minsparethreads: '75'
+mpm_event_module_maxsparethreads: '250'
+mpm_event_module_threadsperchild: '25'
+mpm_event_module_maxrequestworkers: '400'
+mpm_event_module_maxconnectionsperchild: '0'
+# mpm_netware_module
+mpm_netware_module_threadstacksize: '65536'
+mpm_netware_module_startthreads: '250'
+mpm_netware_module_minsparethreads: '25'
+mpm_netware_module_maxsparethreads: '250'
+mpm_netware_module_maxthreads: '1000'
+mpm_netware_module_maxconnectionsperchild: '0'
+mpm_netware_module_maxmemfree: '100'
+# mpm_mpmt_os2_module
+mpm_mpmt_os2_module_startservers: '2'
+mpm_mpmt_os2_module_minsparethreads: '5'
+mpm_mpmt_os2_module_maxsparethreads: '10'
+mpm_mpmt_os2_module_maxconnectionsperchild: '0'
+# mpm_winnt_module
+mpm_winnt_module_threadsperchild: '150'
+mpm_winnt_module_maxconnectionsperchild: '0'
+
+
+# virtualhosts.conf
+virtualhosts:
+  - {
+  host: '*',
+  port: '80',
+  server_name: 'example.com',
+  document_root: '/etc/apache2/htdocs',
+  directory: '/etc/apache2/htdocs',
+  allow_override: 'All',
+  require: 'all granted',
+  error_log: '/var/log/apache/error.log',
+  access_log: '/var/log/apache/access.log'
+  }

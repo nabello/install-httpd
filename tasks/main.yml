@@ -1,0 +1,15 @@
+---
+###############################
+# Install apache2 from source #
+###############################
+
+- include: Common/common_apache2_install_with_tar.yml
+  when: install_type == "tar"
+
+- include: Common/common_apache2_install_with_git.yml
+  when: install_type == "git"
+
+- include: Common/common_apache2_configure.yml
+
+- include: Common/common_systemd_configure.yml
+  when: not container_mode| bool

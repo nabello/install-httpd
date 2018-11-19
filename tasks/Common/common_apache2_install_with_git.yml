@@ -1,0 +1,45 @@
+---
+# Make sources directory
+- file:
+    path: "{{ compiling_path }}"
+    state: directory
+
+# Clone repositories httpd, apr, apr-util
+- name: Common => git - Clone repositories httpd, apr, apr-util
+  git:
+    repo: "{{item.url}}"
+    dest: "{{ compiling_path }}/{{ item.name }}"
+    version: "{{item.tag}}"
+  with_items:
+    - "{{ httpd_repository }}"
+    - "{{ httpd_apr }}"
+    - "{{ httpd_apr_util }}"
+
+# Copy apr and apr-util directory to httpd
+- name: Common => git - Copy apr and apr-util directory to httpd
+  command: "cp -r {{ compiling_path }}/{{item}} {{ compiling_path }}/httpd/srclib/{{item}}"
+  with_items:
+    - "apr"
+    - "apr-util"
+
+# Configure & Make apache2
+- name: Common => git - Configure & Make apache2
+  command: "{{ item }}"
+  args:
+    chdir: "{{ compiling_path }}/httpd"
+  with_items:
+    - ./buildconf
+    - "./configure --prefix={{ apache2_dir }} --enable-ssl --enable-so --with-included-apr --with-mpm=event --with-expat=/usr/include:/usr/lib64:expat"
+    - make
+    - make install
+
+# Copy apachectl to /usr/sbin
+- name: Common => git - Copy apachectl to /usr/sbin
+  command: "cp -r {{ apache2_dir }}/bin/apachectl /usr/sbin"
+
+# Remove source directory
+- file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "{{ compiling_path }}"
